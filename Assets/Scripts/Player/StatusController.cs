@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HealthController : MonoBehaviour
+public class StatusController : MonoBehaviour
 {
 	// These are just related to
 	// the flashing material effect
@@ -11,16 +12,18 @@ public class HealthController : MonoBehaviour
 	private Material playerMaterial;
 	public Material damageMaterial;
 	public Material healMaterial;
-	public float hpLerpSpeed = 3.0f;
-	private float hpLerp = 1.0f;
+	public Material manaMaterial;
+	public float matLerpSpeed = 3.0f;
+	private float matLerp = 1.0f;
 	// A visual health indicator
-	private TextMesh hpText;
+	private Slider hpSlider;
+	private Slider mpSlider;
 
 	// Implementing a C# Property for health
 
 	// The recommended way is to have a private
 	// variable to contain the actual value
-	private int _health = 0;
+	private int _health = 50;
 	// And the public Health is the way that
 	// we want other scripts to interact with
 	// the health value
@@ -44,7 +47,21 @@ public class HealthController : MonoBehaviour
 			// Very important!
 			_health = value;
 			// Updating visual health counter
-			hpText.text = (_health.ToString());
+			hpSlider.value = _health;
+		}
+	}
+	private int _mana = 50;
+	public int Mana
+	{
+		get => _mana;
+		set
+		{
+			if (_mana < value)
+			{
+				manaEffect();
+			}
+			_mana = value;
+			mpSlider.value = _mana;
 		}
 	}
 
@@ -55,17 +72,20 @@ public class HealthController : MonoBehaviour
 		playerMaterial = Instantiate(mesh.material);
 		// Need to do this to make the effect work
 		playerMaterial.EnableKeyword("_EMISSION");
-		// A child object contains a TextMesh
-		hpText = GetComponentInChildren<TextMesh>();
+		RectTransform canvas = GetComponentInChildren<RectTransform>();
+		hpSlider = canvas.GetChild(0).GetComponent<Slider>();
+		mpSlider = canvas.GetChild(1).GetComponent<Slider>();
+		hpSlider.value = _health;
+		mpSlider.value = _mana;
 	}
 
 	private void Update()
 	{
 		// Lerping between materials based on a timer
-		if (hpLerp < 1.0f)
+		if (matLerp < 1.0f)
 		{
-			mesh.material.Lerp(lerpMaterial, playerMaterial, hpLerp);
-			hpLerp += Time.deltaTime * hpLerpSpeed;
+			mesh.material.Lerp(lerpMaterial, playerMaterial, matLerp);
+			matLerp += Time.deltaTime * matLerpSpeed;
 		}
 		else
 		{
@@ -79,12 +99,18 @@ public class HealthController : MonoBehaviour
 	private void healEffect()
 	{
 		lerpMaterial = healMaterial;
-		hpLerp = 0.0f;
+		matLerp = 0.0f;
 	}
 
 	private void damageEffect()
 	{
 		lerpMaterial = damageMaterial;
-		hpLerp = 0.0f;
+		matLerp = 0.0f;
+	}
+
+	private void manaEffect()
+	{
+		lerpMaterial = manaMaterial;
+		matLerp = 0.0f;
 	}
 }

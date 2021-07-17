@@ -10,6 +10,11 @@ public class ItemSpawner : MonoBehaviour
 
 	private void Start()
 	{
+		SpawnItem();
+	}
+
+	public void SpawnItem()
+	{
 		GameObject prefab = itemAsset.itemPrefab;
 		itemInstance = Instantiate(prefab, transform);
 		itemInstance.transform.SetParent(null);

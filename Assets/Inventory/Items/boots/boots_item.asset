@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17758baf92c7fb24eaf2e2c38b63dc4b, type: 3}
-  m_Name: hpPotion_item
+  m_Name: boots_item
   m_EditorClassIdentifier: 
-  itemName: Health Potion
-  itemImage: {fileID: 21300000, guid: f939f0dc6c06ff64fb8b9eb3e9d47a91, type: 3}
-  itemType: 0
-  itemPrefab: {fileID: 8289147464133088768, guid: ab9be82d22bd03c4bbfb1b5c97c0609e, type: 3}
-  itemUsable: {fileID: 11400000, guid: 45fa2524350d74742a1499c28a50adbf, type: 2}
+  itemName: Boots of Speed
+  itemImage: {fileID: 21300000, guid: 9a542f297249c8f4585558cf0e31b00e, type: 3}
+  itemType: 1
+  itemPrefab: {fileID: 667968023853052857, guid: 974e5ba7844e3e04886d63637f7fd722, type: 3}
+  itemUsable: {fileID: 0}

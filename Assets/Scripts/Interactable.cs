@@ -15,6 +15,6 @@ public class Interactable : MonoBehaviour
 
 	private void OnDisable()
 	{
-		FindObjectOfType<InteractController>().interactableObjects.Remove(this);
+		FindObjectOfType<InteractController>()?.interactableObjects.Remove(this);
 	}
 }

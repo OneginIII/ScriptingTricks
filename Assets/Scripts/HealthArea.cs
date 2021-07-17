@@ -9,21 +9,21 @@ public class HealthArea : MonoBehaviour
 	public float tickTime = 1.0f;
 	private float timer = 0.0f;
 	// The HealthController component
-	private HealthController hpCont = null;
+	private StatusController hpCont = null;
 
 	// OnTriggerEnter/Exit check for right the component
 	// and set the variable to that or null
 	private void OnTriggerEnter(Collider col)
 	{
-		if (col.GetComponent<HealthController>() != null)
+		if (col.GetComponent<StatusController>() != null)
 		{
-			hpCont = col.GetComponent<HealthController>();
+			hpCont = col.GetComponent<StatusController>();
 		}
 	}
 
 	private void OnTriggerExit(Collider col)
 	{
-		if (col.GetComponent<HealthController>() != null)
+		if (col.GetComponent<StatusController>() != null)
 		{
 			hpCont = null;
 		}

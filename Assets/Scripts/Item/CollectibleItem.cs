@@ -9,6 +9,7 @@ public class CollectibleItem : MonoBehaviour
 	public void Collect()
 	{
 		FindObjectOfType<PlayerInventory>().Add(itemAsset);
+		FindObjectOfType<InventoryUi>().RefreshInventory();
 		Destroy(this.gameObject);
 	}
 }

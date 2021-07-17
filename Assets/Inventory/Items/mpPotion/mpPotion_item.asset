@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17758baf92c7fb24eaf2e2c38b63dc4b, type: 3}
-  m_Name: hpPotion_item
+  m_Name: mpPotion_item
   m_EditorClassIdentifier: 
-  itemName: Health Potion
-  itemImage: {fileID: 21300000, guid: f939f0dc6c06ff64fb8b9eb3e9d47a91, type: 3}
+  itemName: Mana Potion
+  itemImage: {fileID: 21300000, guid: 193ee392b7d16614bb463368f58e6804, type: 3}
   itemType: 0
-  itemPrefab: {fileID: 8289147464133088768, guid: ab9be82d22bd03c4bbfb1b5c97c0609e, type: 3}
-  itemUsable: {fileID: 11400000, guid: 45fa2524350d74742a1499c28a50adbf, type: 2}
+  itemPrefab: {fileID: 6140585226271025473, guid: 8b2394c1532b7234f9cdd0ce14b97bac, type: 3}
+  itemUsable: {fileID: 11400000, guid: 93b8d4e3138793d4dbb52cba88f62e12, type: 2}

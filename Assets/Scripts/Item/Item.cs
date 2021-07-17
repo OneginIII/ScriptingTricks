@@ -15,4 +15,5 @@ public class Item : ScriptableObject
 	public Sprite itemImage;
 	public ItemType itemType;
 	public GameObject itemPrefab;
+	public AbstractUsableItem itemUsable;
 }
