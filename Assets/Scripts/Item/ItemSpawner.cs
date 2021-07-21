@@ -7,6 +7,7 @@ public class ItemSpawner : MonoBehaviour
 {
 	public Item itemAsset;
 	private GameObject itemInstance;
+	private Transform parentTransform;
 
 	private void Start()
 	{
@@ -19,10 +20,13 @@ public class ItemSpawner : MonoBehaviour
 		itemInstance = Instantiate(prefab, transform);
 		itemInstance.transform.SetParent(null);
 		SphereCollider sphereCol = itemInstance.AddComponent<SphereCollider>();
-		sphereCol.radius = 0.01f;
+		sphereCol.radius = 1.0f / itemInstance.transform.localScale.x;
 		sphereCol.isTrigger = true;
 		Interactable interact = itemInstance.AddComponent<Interactable>();
-		interact.interactText = "Collect " + itemAsset.itemName;
+		string collectText = "Collect " + "<sprite=\"" + itemAsset.itemImage.name + "\" index=0> ";
+		if (itemAsset.itemQuantity > 1) { collectText += itemAsset.itemQuantity.ToString() + " " + itemAsset.itemName; }
+		else { collectText += itemAsset.itemName; }
+		interact.interactText = collectText;
 		CollectibleItem itemCol = itemInstance.AddComponent<CollectibleItem>();
 		itemCol.itemAsset = itemAsset;
 		GameObject player = FindObjectOfType<PlayerController>().gameObject;

@@ -16,4 +16,6 @@ public class Item : ScriptableObject
 	public ItemType itemType;
 	public GameObject itemPrefab;
 	public AbstractUsableItem itemUsable;
+	public int itemQuantity = 1;
+	public bool itemStackable = false;
 }

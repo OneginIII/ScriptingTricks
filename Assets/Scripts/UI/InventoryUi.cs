@@ -104,6 +104,7 @@ public class InventoryUi : MonoBehaviour
 		{
 			playerInv.Drop(currentSlot.currentItem);
 			RefreshInventory();
+			OnCurrentSlotSet(null);
 		}
 	}
 
@@ -127,6 +128,7 @@ public class InventoryUi : MonoBehaviour
 				}
 			}
 			RefreshInventory();
+			OnCurrentSlotSet(null);
 		}
 	}
 }

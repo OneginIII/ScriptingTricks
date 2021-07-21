@@ -4,5 +4,9 @@ using UnityEngine;
 
 public abstract class AbstractUsableItem : ScriptableObject
 {
-	public abstract void UseItem();
+	public virtual void UseItem() { }
+
+	public virtual void OnItemEquip() { }
+
+	public virtual void OnItemUnequip() { }
 }

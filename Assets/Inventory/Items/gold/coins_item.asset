@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17758baf92c7fb24eaf2e2c38b63dc4b, type: 3}
-  m_Name: boots_item
+  m_Name: coins_item
   m_EditorClassIdentifier: 
-  itemName: Boots of Speed
-  itemImage: {fileID: 21300000, guid: 9a542f297249c8f4585558cf0e31b00e, type: 3}
-  itemType: 1
-  itemPrefab: {fileID: 667968023853052857, guid: 974e5ba7844e3e04886d63637f7fd722, type: 3}
-  itemUsable: {fileID: 11400000, guid: 15ec0cd6b16ed104aa99ec39a3474042, type: 2}
-  itemQuantity: 1
-  itemStackable: 0
+  itemName: Coins
+  itemImage: {fileID: 21300000, guid: b2e9e2a7b31be0341a1d2a1abe6acdc9, type: 3}
+  itemType: 2
+  itemPrefab: {fileID: 3702141835123419829, guid: d5fe4a5c466dbcb4fbfc885c05615387, type: 3}
+  itemUsable: {fileID: 0}
+  itemQuantity: 100
+  itemStackable: 1
