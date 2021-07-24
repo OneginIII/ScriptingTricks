@@ -17,11 +17,13 @@ public class InventorySlot : MonoBehaviour, ISelectHandler
 		quantityText = GetComponentInChildren<TextMeshProUGUI>();
 	}
 
+	// Triggered by the ISelectHandler interface
 	public void OnSelect(BaseEventData eventData)
 	{
 		inventoryUi.OnCurrentSlotSet(GetComponent<InventorySlot>());
 	}
 
+	// Updating the slot based on the contained item
 	public void SetSlotItem(Item item)
 	{
 		Image img = transform.Find("Icon").GetComponent<Image>();

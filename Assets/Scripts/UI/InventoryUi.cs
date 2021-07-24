@@ -23,6 +23,7 @@ public class InventoryUi : MonoBehaviour
 		equipSlots = panel.transform.Find("EquipGrid").GetComponentsInChildren<InventorySlot>();
 	}
 
+	// Toggle inventory on input
 	private void Update()
 	{
 		if (Input.GetButtonDown("Menu"))
@@ -31,6 +32,7 @@ public class InventoryUi : MonoBehaviour
 		}
 	}
 
+	// Inventory UI toggle
 	public void ToggleInventory()
 	{
 		currentSlot = null;
@@ -39,6 +41,8 @@ public class InventoryUi : MonoBehaviour
 		FindObjectOfType<PlayerController>().controlEnabled = !panel.activeInHierarchy;
 	}
 
+	// Refreshes inventory slots to reflect
+	// items in player's inventory
 	public void RefreshInventory()
 	{
 		for (int i = 0; i < invSlots.Length; i++)
@@ -66,6 +70,7 @@ public class InventoryUi : MonoBehaviour
 		OnCurrentSlotSet(currentSlot);
 	}
 
+	// Updates the inventory UI based on selected item slot
 	public void OnCurrentSlotSet(InventorySlot slot)
 	{
 		currentSlot = slot;
@@ -88,7 +93,14 @@ public class InventoryUi : MonoBehaviour
 			{
 				text.text = "Use";
 			}
-			useButton.interactable = true;
+			if (slot.currentItem.itemUsable == null)
+			{
+				useButton.interactable = false;
+			}
+			else
+			{
+				useButton.interactable = true;
+			}
 			dropButton.interactable = true;
 		}
 		else
@@ -98,6 +110,7 @@ public class InventoryUi : MonoBehaviour
 		}
 	}
 
+	// Triggered by pressing the drop button
 	public void OnDropItem()
 	{
 		if (currentSlot?.currentItem != null)
@@ -108,6 +121,7 @@ public class InventoryUi : MonoBehaviour
 		}
 	}
 
+	// Triggered by pressing the use button
 	public void OnUseItem()
 	{
 		if (currentSlot?.currentItem != null)
